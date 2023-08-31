@@ -18,7 +18,7 @@ st.subheader("Bienvenidos a mi traducotr")
 st.subheader("El profe paso todo el codigo pero bueno")
 
 
-image = Image.open('traductor.jpg')
+image = Image.open('multimedmeme.jpg')
 
 st.image(image)
 
