@@ -27,7 +27,7 @@ st.write("Toca el Botón y habla lo que quires traducir")
 
 stt_button = Button(label=" Inicio ", width=200)
 
-i
+
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
@@ -56,7 +56,7 @@ result = streamlit_bokeh_events(
     override_height=75,
     debounce_time=0)
 
-mage2=Image.open('mememultimedspi.png')
+image2=Image.open('mememultimedspi.png')
 st.image(image2)
 
 if result:
