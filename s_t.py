@@ -14,7 +14,8 @@ from googletrans import Translator
 
 
 st.title("Interfaces Multimodales")
-st.subheader("TRADUCTOR")
+st.subheader("Bienvenidos a mi traducotr")
+st.subheader("El profe paso todo el codigo pero bueno")
 
 
 image = Image.open('traductor.jpg')
