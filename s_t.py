@@ -27,6 +27,9 @@ st.write("Toca el Botón y habla lo que quires traducir")
 
 stt_button = Button(label=" Inicio ", width=200)
 
+image2=Image.open('memespiderman.jpg')
+st.image(image2)
+
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
