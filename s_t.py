@@ -270,7 +270,7 @@ if opc=="Texto":
                 tld = "ie"
             elif english_accent == "Sudáfrica":
                 tld = "co.za"            
-            
+            translator = Translator()
             display_output_text = st.checkbox("Mostrar el texto")
             if st.button("convertir"):
                 result, output_text = text_to_speech(input_language, output_language, text, tld)
