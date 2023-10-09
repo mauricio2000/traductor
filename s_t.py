@@ -32,7 +32,10 @@ st.write("Toca el Botón y habla lo que quires traducir")
 stt_button = Button(label=" Inicio ", width=200)
 
 
-
+in_lang = st.selectbox(
+        "Selecciona el lenguaje de Entrada",
+        ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
+    )
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
@@ -74,10 +77,7 @@ if result:
     translator = Translator()
     
     text = str(result.get("GET_TEXT"))
-    in_lang = st.selectbox(
-        "Selecciona el lenguaje de Entrada",
-        ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
-    )
+    
     if in_lang == "Inglés":
         input_language = "en"
     elif in_lang == "Español":
@@ -187,16 +187,3 @@ if result:
 
     remove_files(7)
     
-st.title("Reconocimiento óptico de Caracteres")
-
-img_file_buffer = st.camera_input("Toma una Foto")
-img_cv = cv2.imread(img_file_buffer)
-
-with st.sidebar:
-      filtro = st.radio("Aplicar Filtro",('Con Filtro', 'Sin Filtro'))
-
-
-if img_file_buffer is not None:
-
-    img_rgb = cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB)
-    print(pytesseract.image_to_string(img_rgb))
