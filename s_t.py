@@ -159,7 +159,7 @@ if opc=="Audio":
                 tld = "co.za"            
             
             display_output_text = st.checkbox("Mostrar el texto")
-            st.write(text)
+            
             if st.button("convertir"):
                 result, output_text = text_to_speech(input_language, output_language, text, tld)
                 audio_file = open(f"temp/{result}.mp3", "rb")
