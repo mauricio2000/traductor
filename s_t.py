@@ -192,7 +192,7 @@ if opc=="Audio":
         
             remove_files(7)
 
-        else:
+else:
              st.write("Toca el Botón y habla lo que quires traducir")
         
         stt_button = Button(label=" Inicio ", width=200)
