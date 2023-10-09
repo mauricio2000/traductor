@@ -190,14 +190,13 @@ if result:
 st.title("Reconocimiento óptico de Caracteres")
 
 img_file_buffer = st.camera_input("Toma una Foto")
+img_cv = cv2.imread(img_file_buffer)
 
 with st.sidebar:
       filtro = st.radio("Aplicar Filtro",('Con Filtro', 'Sin Filtro'))
 
 
 if img_file_buffer is not None:
-    img_cv = img_file_buffer
-
 
     img_rgb = cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB)
     print(pytesseract.image_to_string(img_rgb))
