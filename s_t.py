@@ -33,7 +33,7 @@ st.subheader("Aplicación de traducción mediante texto o audio")
 st.subheader("¿Qué desea traducir, texto o audio?")
 opc = st.selectbox(
         "Selecciona el tipo de entrada",
-        ("Texto", "Audio"),
+        ("Texto", "Audio","Imagen"),
     )
 if opc=="Audio":
 
