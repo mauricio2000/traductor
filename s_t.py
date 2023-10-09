@@ -282,7 +282,7 @@ if opc=="Texto":
                     tts.save(f"temp/{my_file_name}.mp3")
                     return my_file_name, text
             if st.button("convertir"):
-                        result, output_text = text_to_speech2(input_language, output_language, text, tld)
+                        result, output_text = text_to_speech2(text, tld)
                         audio_file = open(f"temp/{result}.mp3", "rb")
                         audio_bytes = audio_file.read()
                         st.markdown(f"## Tú audio:")
