@@ -27,7 +27,7 @@ def text_to_speech(input_language, output_language, text, tld):
         return my_file_name, trans_text
 
 st.title("Interfaces Multimodales Proyecto 2")
-st.subheader("Aplicación de traudcción mediante texto o audio")
+st.subheader("Aplicación de traducción mediante texto o audio")
 
 
 st.subheader("¿Qué desea traducir, texto o audio?")
