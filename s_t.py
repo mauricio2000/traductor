@@ -274,7 +274,7 @@ if opc=="Texto":
                 tld = "ie"
             elif english_accent == "Sudáfrica":
                 tld = "co.za"
-            
+            st.write(f" {text}")
             
             def text_to_speech(input_language, output_language, text, tld):
                 translation = translator.translate(text, src=input_language, dest=output_language)
