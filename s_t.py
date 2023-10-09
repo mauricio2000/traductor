@@ -6,6 +6,9 @@ from streamlit_bokeh_events import streamlit_bokeh_events
 from PIL import Image
 import time
 import glob
+import cv2
+import numpy as np
+import pytesseract
 
 
 
