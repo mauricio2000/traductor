@@ -27,13 +27,12 @@ st.image(image)
 
 st.subheader("¿Qué desea traducir, texto o audio?")
 opc = st.selectbox(
-        "Selecciona el lenguaje de Entrada",
+        "Selecciona el tipo de entrada",
         ("Texto", "Audio"),
     )
 if opc=="Audio":
 
-        st.write("Toca el Botón y habla lo que quires traducir")
-        
+        st.subheader("Has elegido AUDIO")
         stt_button = Button(label=" Inicio ", width=200)
         
         
@@ -46,6 +45,7 @@ if opc=="Audio":
                 "Selecciona el lenguaje de salida",
                 ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
             )
+        st.write("Toca el Botón y habla lo que quires traducir")
         
         stt_button.js_on_event("button_click", CustomJS(code="""
             var recognition = new webkitSpeechRecognition();
@@ -193,7 +193,7 @@ if opc=="Audio":
             remove_files(7)
 if opc=="Texto":
 
-        st.write("Toca el Botón y habla lo que quires traducir")
+        st.subheader("Has elegido TEXTO")
         
         stt_button = Button(label=" Inicio ", width=200)
         
@@ -207,45 +207,8 @@ if opc=="Texto":
                 "Selecciona el lenguaje de salida",
                 ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
             )
-        
-        stt_button.js_on_event("button_click", CustomJS(code="""
-            var recognition = new webkitSpeechRecognition();
-            recognition.continuous = true;
-            recognition.interimResults = true;
-         
-            recognition.onresult = function (e) {
-                var value = "";
-                for (var i = e.resultIndex; i < e.results.length; ++i) {
-                    if (e.results[i].isFinal) {
-                        value += e.results[i][0].transcript;
-                    }
-                }
-                if ( value != "") {
-                    document.dispatchEvent(new CustomEvent("GET_TEXT", {detail: value}));
-                }
-            }
-            recognition.start();
-            """))
-        
-        result = streamlit_bokeh_events(
-            stt_button,
-            events="GET_TEXT",
-            key="listen",
-            refresh_on_update=False,
-            override_height=75,
-            debounce_time=0)
-        
-        if result:
-            if "GET_TEXT" in result:
-                st.write(result.get("GET_TEXT"))
-            try:
-                os.mkdir("temp")
-            except:
-                pass
-            st.title("Texto a Audio")
-            translator = Translator()
-            
-            text = str(result.get("GET_TEXT"))
+        st.write("Ingresa el Texto que deseas traducir")
+        text = st.text_input("Ingrese el texto.")
             
             if in_lang == "Inglés":
                 input_language = "en"
