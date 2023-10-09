@@ -21,10 +21,6 @@ st.title("Interfaces Multimodales Proyecto 2")
 st.subheader("Aplicación de traudcción mediante texto o audio")
 
 
-image = Image.open('multimedmeme.jpg')
-
-st.image(image)
-
 st.subheader("¿Qué desea traducir, texto o audio?")
 opc = st.selectbox(
         "Selecciona el tipo de entrada",
