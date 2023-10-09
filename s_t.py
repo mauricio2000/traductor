@@ -36,6 +36,12 @@ in_lang = st.selectbox(
         "Selecciona el lenguaje de Entrada",
         ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
     )
+
+out_lang = st.selectbox(
+        "Selecciona el lenguaje de salida",
+        ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
+    )
+
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
@@ -95,10 +101,7 @@ if result:
     elif out_lang == "Frances":
         output_language = "fr"
     
-    out_lang = st.selectbox(
-        "Selecciona el lenguaje de salida",
-        ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
-    )
+    
     if out_lang == "Inglés":
         output_language = "en"
     elif out_lang == "Español":
