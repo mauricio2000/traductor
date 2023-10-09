@@ -302,7 +302,7 @@ if opc=="Imagen":
         st.write("Toma foto a lo que deseas traducir")
         imagen = st.camera_input("Capturar foto",label_visibility='visible')
         if imagen is not None:
-                image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+                imagen = cv2.cvtColor(imagen, cv2.COLOR_BGR2RGB)
                 img_cv = cv2.imread(imagen)
                 img_rgb = cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB)
                 text = str(pytesseract.image_to_string(img_rgb))
