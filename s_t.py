@@ -284,7 +284,7 @@ if opc=="Texto":
                 st.markdown(f"## Tú audio:")
                 st.audio(audio_bytes, format="audio/mp3", start_time=0)
             
-                if display_output_text:
+             if display_output_text:
                     st.markdown(f"## Texto de salida:")
                     st.write(f" {output_text}")
             
