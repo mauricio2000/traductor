@@ -291,6 +291,7 @@ if opc=="Texto":
             display_output_text = st.checkbox("Mostrar el texto")
             
             if st.button("convertir"):
+                r, output_text = text_to_speech(input_language, output_language, text, tld)
                 
                 st.markdown(f"## Texto de salida:")
                 st.write(f" {output_text}")
