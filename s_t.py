@@ -30,7 +30,7 @@ opc = st.selectbox(
         "Selecciona el lenguaje de Entrada",
         ("Texto", "Audio"),
     )
-if opc=="Audio"
+if opc=="Audio":
 
         st.write("Toca el Botón y habla lo que quires traducir")
         
