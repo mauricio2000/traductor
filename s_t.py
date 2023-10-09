@@ -203,8 +203,10 @@ if opc=="Texto":
                 "Selecciona el lenguaje de salida",
                 ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
             )
+        
         st.write("Ingresa el Texto que deseas traducir")
-        text = st.text_input("Ingrese el texto.")
+        text = str(st.text_input("Ingrese el texto."))
+        
         if True:            
             if in_lang == "Inglés":
                 input_language = "en"
