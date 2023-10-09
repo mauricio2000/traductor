@@ -282,3 +282,104 @@ if opc=="Texto":
                 if display_output_text:
                     st.markdown(f"## Texto de salida:")
                     st.write(f" {output_text}")
+if opc=="Imagen":
+
+        st.subheader("Has elegido IMAGEN")
+        
+        stt_button = Button(label=" Inicio ", width=200)
+        
+        
+        in_lang = st.selectbox(
+                "Selecciona el lenguaje de Entrada",
+                ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
+            )
+        
+        out_lang = st.selectbox(
+                "Selecciona el lenguaje de salida",
+                ("Inglés", "Español", "Frances","Bengali", "Coreano", "Mandarín", "Japonés","Portugues"),
+            )
+        
+        st.write("Toma foto a lo que deseas traducir")
+        img_cv = cv2.imread(st.camera_input("Capturar foto",label_visibility='visible'))
+        img_rgb = cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB)
+        text = str(pytesseract.image_to_string(img_rgb))
+        
+        if True:            
+            if in_lang == "Inglés":
+                input_language = "en"
+            elif in_lang == "Español":
+                input_language = "es"
+            elif in_lang == "Bengali":
+                input_language = "bn"
+            elif in_lang == "Coreano":
+                input_language = "ko"
+            elif in_lang == "Mandarín":
+                input_language = "zh-cn"
+            elif in_lang == "Japonés":
+                input_language = "ja"
+            elif out_lang == "Portugues":
+                output_language = "pt"
+            elif out_lang == "Frances":
+                output_language = "fr"
+            
+            
+            if out_lang == "Inglés":
+                output_language = "en"
+            elif out_lang == "Español":
+                output_language = "es"
+            elif out_lang == "Bengali":
+                output_language = "bn"
+            elif out_lang == "Coreano":
+                output_language = "ko"
+            elif out_lang == "Mandarín":
+                output_language = "zh-cn"
+            elif out_lang == "Japonés":
+                output_language = "ja"
+            elif out_lang == "Portugues":
+                output_language = "pt"
+            elif out_lang == "Frances":
+                output_language = "fr"
+            
+            english_accent = st.selectbox(
+                "Selecciona el acento",
+                (
+                    "Defecto",
+                    "Español",
+                    "Reino Unido",
+                    "Estados Unidos",
+                    "Canada",
+                    "Australia",
+                    "Irlanda",
+                    "Sudáfrica",
+                ),
+            )
+            
+            if english_accent == "Defecto":
+                tld = "com"
+            elif english_accent == "Español":
+                tld = "com.mx"
+            
+            elif english_accent == "Reino Unido":
+                tld = "co.uk"
+            elif english_accent == "Estados Unidos":
+                tld = "com"
+            elif english_accent == "Canada":
+                tld = "ca"
+            elif english_accent == "Australia":
+                tld = "com.au"
+            elif english_accent == "Irlanda":
+                tld = "ie"
+            elif english_accent == "Sudáfrica":
+                tld = "co.za"            
+            translator = Translator()
+            display_output_text = st.checkbox("Mostrar el texto")
+            if st.button("convertir"):
+                result, output_text = text_to_speech(input_language, output_language, text, tld)
+                audio_file = open(f"temp/{result}.mp3", "rb")
+                audio_bytes = audio_file.read()
+                st.markdown(f"## Tú audio:")
+                st.audio(audio_bytes, format="audio/mp3", start_time=0)
+            
+                if display_output_text:
+                    st.markdown(f"## Texto de salida:")
+                    st.write(f" {output_text}")
