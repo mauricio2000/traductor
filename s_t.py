@@ -283,5 +283,4 @@ if opc=="Texto":
                         if display_output_text:
                             st.markdown(f"## Texto de salida:")
                             st.write(f" {output_text}")
-        
             remove_files(7)
