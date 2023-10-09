@@ -195,16 +195,12 @@ with st.sidebar:
 
 
 if img_file_buffer is not None:
-    # To read image file buffer with OpenCV:
-    bytes_data = img_file_buffer.getvalue()
-    cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
-    
-    if filtro == 'Con Filtro':
-         cv2_img=cv2.bitwise_not(cv2_img)
-    else:
-         cv2_img= cv2_img
-    
-        
-    img_rgb = cv2.cvtColor(cv2_img, cv2.COLOR_BGR2RGB)
-    text=pytesseract.image_to_string(img_rgb)
-    st.write(text) 
+    img_cv = img_file_buffer
+
+
+img_rgb = cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB)
+print(pytesseract.image_to_string(img_rgb))
+
+img_rgb = Image.frombytes('RGB', img_cv.shape[:2], img_cv, 'raw', 'BGR', 0, 0)
+text_in=pytesseract.image_to_string(img_rgb)
+print(pytesseract.image_to_string(img_rgb))
