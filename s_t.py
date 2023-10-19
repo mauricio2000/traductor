@@ -304,7 +304,7 @@ if opc=="Imagen":
 
         st.subheader("Has elegido IMAGEN")
         
-        stt_button = Button(label=" Inicio ", width=200)
+        img_file_buffer = st.camera_input("Toma una Foto")
         
         
         in_lang = st.selectbox(
